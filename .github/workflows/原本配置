@@ -1,0 +1,125 @@
+{
+    "domains": [
+        {
+            "name": "name1",
+            "sub": "https://aaa.com/xxx?token=xxx",
+            "push_to": [
+                "group1"
+            ]
+        },
+        {
+            "name": "name2",
+            "domain": "https://bbb.com",
+            "push_to": [
+                "group1"
+            ]
+        },
+        {
+            "name": "ccc",
+            "rename": "(TG)?频道",
+            "include": "regex",
+            "exclude": "(下载|游戏)专用",
+            "sub": [
+                "https://ccc.xyz/path",
+                "https://ddd.top/xxx"
+            ],
+            "push_to": [
+                "group1",
+                "group2"
+            ]
+        }
+    ],
+    "crawl": {
+        "exclude": "\\.+xxx|xxx\\.+",
+        "singlelink": true,
+        "persist": {
+            "subs": "subs",
+            "proxies": "proxies"
+        },
+        "google": {
+            "qdr": 730,
+            "push_to": [
+                "group3"
+            ]
+        },
+        "pages": [
+            {
+                "url": [
+                    "http://www.eee.com",
+                    "https://fff.org/r/file.txt",
+                    "https://ggg.xyz/path/xxx.html"
+                ],
+                "nocache": true,
+                "include": "https?:\\/\\/[^:;<>\\s]*",
+                "push_to": [
+                    "group3"
+                ]
+            }
+        ]
+    },
+    "groups": {
+        "group1": {
+            "emoji": true,
+            "targets": {
+                "clash": "group1-clash",
+                "v2ray": "group1-v2ray"
+            },
+            "regularize": {
+                "locate": true,
+                "residential": true
+            }
+        },
+        "group2": {
+            "emoji": false,
+            "list": true,
+            "targets": {
+                "loon": "group2-loon"
+            }
+        },
+        "group3": {
+            "emoji": true,
+            "list": false,
+            "targets": {
+                "surge": "group3-surge",
+                "singbox": "group3-singbox"
+            },
+            "regularize": {
+                "locate": true,
+                "residential": false
+            }
+        }
+    },
+    "storage": {
+        "engine": "gist",
+        "items": {
+            "group1-clash": {
+                "gistid": "xxx",
+                "filename": "a.yaml"
+            },
+            "group1-v2ray": {
+                "gistid": "xxx",
+                "filename": "b.txt"
+            },
+            "group2-loon": {
+                "gistid": "xxx",
+                "filename": "c.conf"
+            },
+            "group3-surge": {
+                "gistid": "xxx",
+                "filename": "d.conf"
+            },
+            "group3-singbox": {
+                "gistid": "xxx",
+                "filename": "e.json"
+            },
+            "subs": {
+                "gistid": "xxx",
+                "filename": "subs.txt"
+            },
+            "proxies": {
+                "gistid": "xxx",
+                "filename": "single-proxies.txt"
+            }
+        }
+    }
+}
